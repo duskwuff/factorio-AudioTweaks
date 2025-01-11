@@ -1,17 +1,3 @@
--- data:extend{
---     {
---         name    = "AudioTweaks-open-close",
---         type    = "string-setting",
---         setting_type    = "startup",
---         default_value   = "add-machine",
---         allowed_values = {
---             "",
---             "add-machine",
---             "all-quiet",
---         },
---     },
--- }
-
 data:extend{
     {
         name = "AudioTweaks-item-pick",
@@ -75,5 +61,42 @@ data:extend{
             "mute",
         },
         order = "04",
+    },
+
+    {
+        name = "AudioTweaks-bots",
+        type = "string-setting",
+        setting_type = "startup",
+        default_value = "default",
+        allowed_values = {
+            "default",
+            "noambient",
+        },
+        order = "100",
+    },
+
+    {
+        name = "AudioTweaks-combinators",
+        type = "string-setting",
+        setting_type = "startup",
+        default_value = "default",
+        allowed_values = {
+            "default",
+            "noambient",
+        },
+        order = "101",
+    },
+
+    {
+        name = "AudioTweaks-armor",
+        type = "string-setting",
+        setting_type = "startup",
+        default_value = "default",
+        allowed_values = {
+            "default",
+            "noflight",
+            "noflight-nosteps",
+        },
+        order = "102",
     },
 }

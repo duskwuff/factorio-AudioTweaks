@@ -1,0 +1,12 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 2025-01-11
+  Changes:
+    - Added settings to mute ambient sounds from bots and combinators, and mute flight and movement sounds from mech armor.
+    - Slightly clearer (I hope?) descriptive text.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2024-07-11
+  Changes:
+    - Initial release

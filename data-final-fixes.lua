@@ -6,6 +6,9 @@ local cfg_item_drop = settings.startup["AudioTweaks-item-drop"].value
 local cfg_tools = settings.startup["AudioTweaks-tools"].value
 local cfg_entity = settings.startup["AudioTweaks-entity"].value
 local cfg_nve = settings.startup["AudioTweaks-nve"].value
+local cfg_mute_bots = settings.startup["AudioTweaks-bots"].value
+local cfg_mute_combinators = settings.startup["AudioTweaks-combinators"].value
+local cfg_mute_armor = settings.startup["AudioTweaks-armor"].value
 
 local no_sound = { filename = "__AudioTweaks__/sound/null.wav", volume = 0 }
 
@@ -80,8 +83,37 @@ for t in pairs(defines.prototypes["item"]) do
 end
 
 if cfg_nve == "mute" then
-    for _, p in pairs(data.raw["night-vision-equipment"]) do
+    for _, p in pairs(data.raw["night-vision-equipment"] or {}) do
         p.activate_sound = nil
         p.deactivate_sound = nil
+    end
+end
+
+if cfg_mute_bots ~= "default" then
+    for _, t in pairs({"construction-robot", "logistic-robot"}) do
+        for _, p in pairs(data.raw[t] or {}) do
+            p.working_sound = nil
+        end
+    end
+end
+
+if cfg_mute_combinators ~= "default" then
+    for _, t in pairs({"arithmetic-combinator", "decider-combinator", "constant-combinator", "selector-combinator"}) do
+        for _, p in pairs(data.raw[t] or {}) do
+            p.working_sound = nil
+        end
+    end
+end
+
+if cfg_mute_armor ~= "default" then
+    for _, p in pairs(data.raw["armor"]) do
+        if string.find(cfg_mute_armor, "noflight") then
+            p.flight_sound = nil
+            p.takeoff_sound = nil
+            p.landing_sound = nil
+        end
+        if string.find(cfg_mute_armor, "nosteps") then
+            p.steps_sound = nil
+        end
     end
 end
