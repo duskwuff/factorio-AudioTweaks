@@ -1,9 +1,9 @@
 {
     "name": "AudioTweaks",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "title": "Audio Tweaks",
     "author": "duskwuff",
-    "factorio_version": "2.0",
+    "factorio_version": "2.1",
     "dependencies": ["base"],
     "description": "Add and/or replace certain in-game sounds."
 }
